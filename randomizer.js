@@ -53,14 +53,12 @@ while (cellCol.length<25) {
         }
     }
 
-
-
+/*
 for (let i=0; i<cell.length; i++) {
    //cellColhtml[i].setAttribute('class', cellCol[i] + ' cellCol')
    cell[i].className += ' '+ cellCol[i] + ' hidden display'
 }
-
-
+*/
 
 for (let i=0; i<25; i++) {
     let randomNumber = Math.floor(Math.random() * dictionary.length)
@@ -96,6 +94,8 @@ for (let i=0; i<cell.length; i++) {
 cell[i].addEventListener('click', function(e) {
     //e.preventDefault()
     
+    if (cell[i].innerText != ''){
+        cell[i].innerText = '' 
     if (cell[i].className.includes(currentTurn)) {
          success() }
     else if (cell[i].className.includes('yellow')) {
@@ -105,6 +105,9 @@ cell[i].addEventListener('click', function(e) {
     }
     else {
     opponent() }
+    }
+    else {return false}
+    //cell[i].setAttribute('pointer-events', 'none')
     //cell[i].className =+ 
 })}
 //on click, initial gery should change to respective colour
