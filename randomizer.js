@@ -5,6 +5,22 @@ let blackCol = 1
 let redCol= 0
 let blueCol = 0
 
+//How to Determine the chances one gets - not done yet
+let noofGuess = document.getElementsByClassName('guess')
+//console.log(noofGuess)
+noofGuess[0].addEventListener('change', function(e){
+alert('You have to guess a maximum of ' + noofGuess + 'words')
+
+})
+/*
+this is to capture the code to grab the number of clues after it has been fed in 
+const selectElement = document.querySelector('.ice-cream');
+
+selectElement.addEventListener('change', (event) => {
+  const result = document.querySelector('.result');
+  result.textContent = `You like ${event.target.value}`;
+})*/
+
 //Player mode - when all cells are grey colour
 let playerButton = document.getElementById('player')
 let row = document.getElementsByClassName('row')
@@ -12,9 +28,13 @@ let row = document.getElementsByClassName('row')
 player.addEventListener('click', function(e) {
     for (let i=1; i < row.length; i++) {
     row[i].classList.add('player') }
-    for (let i=0; i<cell.length; i++) {
-        cell[i].removeAttribute(cellCol[j])
-    }
+})
+//Spymaster mode - when all cell colour are displayed
+let spymasterButton = document.getElementById('spymaster')
+
+spymasterButton.addEventListener('click', function(e){ 
+    for (let i=1; i < row.length; i++) {
+        row[i].classList.remove('player') }
 })
 
 let currentTurn =  ''
@@ -74,9 +94,8 @@ while (cellCol.length<25) {
 
 
 for (let i=0; i<cell.length; i++) {
-       cell[i].className += ' '+ cellCol[i]/* + ' hidden display'*/
+       cell[i].className += ' '+ cellCol[i]
 }
-
 
 for (let i=0; i<25; i++) {
     let randomNumber = Math.floor(Math.random() * dictionary.length)
@@ -130,7 +149,7 @@ function bomb() {
 //once clicked disble all clicks
 }
 
-//on click, remove the text display is none
+//on click, remove the text display
 for (let i=0; i<cell.length; i++) {
 cell[i].addEventListener('click', function(e) {
     //e.preventDefault()
@@ -152,19 +171,18 @@ cell[i].addEventListener('click', function(e) {
     else {return false} 
 })}
 
-//toggle between turns
-//toggle between player and spymaster keeping the user input intacts
-
 
 //End Turn click event
 let endTurn = document.getElementById("end-turn") 
 endTurn.addEventListener('click', function(event){
   let changeTurn = toggleTurn()
     turnGuess[0].innerHTML = "Current Turn is: " + changeTurn
+    //toggleTurn()
     alert('Turn has changed')
-    toggleTurn()
+
 })
 
 //game over
 /*
 when bomb is called or either red or blue counter is 0*/
+
