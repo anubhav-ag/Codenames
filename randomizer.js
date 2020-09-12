@@ -18,6 +18,8 @@ noofGuess.addEventListener('change', function(e){
     alert('You can guess a maximum of ' + clickNos + ' words related to ' + clue)
 })
 
+console.log(clickNos)
+
 //Player mode - when all cells are grey colour
 let playerButton = document.getElementById('player')
 let row = document.getElementsByClassName('row')
@@ -25,6 +27,12 @@ let row = document.getElementsByClassName('row')
 player.addEventListener('click', function(e) {
     for (let i=1; i < row.length; i++) {
     row[i].classList.add('player') }
+    for (let i=0; i<cell.length; i++) {
+        if (cell[i].className.includes('black')) {
+        console.log(cell[i])
+        cell[i].style.color = "black"
+        }
+    } 
 })
 //Spymaster mode - when all cell colour are displayed
 let spymasterButton = document.getElementById('spymaster')
@@ -32,9 +40,15 @@ let spymasterButton = document.getElementById('spymaster')
 spymasterButton.addEventListener('click', function(e){ 
     for (let i=1; i < row.length; i++) {
         row[i].classList.remove('player') }
+    
+    for (let i=0; i<cell.length; i++) {
+        if (cell[i].className.includes('black')) {
+        console.log(cell[i])
+        cell[i].style.color = "white"
+        }
+    } 
+    })    //spymasterButton.removeEventListener('click')
 
-        //i still need to update the black class text attribute to white
-})
 //determine current turn
 let currentTurn =  ''
 let turnOrder = document.getElementsByClassName('turn-order')
@@ -123,9 +137,7 @@ function success () {
     if (currentTurn == 'red') {
         redTurns-- 
     }
-    else {blueTurns--}
-    //console.log(`RED: ${redTurns} BLUE: ${blueTurns}`)
-}
+    else {blueTurns--}}
 
 function failure() {
     alert ('You guessed the opponents word, Your turn is over')
@@ -134,7 +146,7 @@ function failure() {
         redTurns-- 
     }
     else {blueTurns--}
-    console.log(`RED: ${redTurns} BLUE: ${blueTurns}`)
+    //console.log(`RED: ${redTurns} BLUE: ${blueTurns}`)
 }
 function civilian() {
     alert ('You guessed a civilian word, turn over')
@@ -142,15 +154,18 @@ function civilian() {
 }
 function bomb() {
     alert ('You guessed a bomb, your turn is over and so is the game')
-//once clicked disble all clicks
+//once click disable all clicks
 }
 
 //on click, remove the text display to not click on it again
 //Playing the game
+console.log(clickNos)
 for (let i=0; i<cell.length; i++) {
 cell[i].addEventListener('click', function(e) {    
     if (cell[i].innerText != ''){
         cell[i].innerText = '' 
+        console.log(redTurns, blueTurns)
+
         if (cell[i].className.includes(currentTurn)) {
          success()
         }
@@ -163,6 +178,10 @@ cell[i].addEventListener('click', function(e) {
         else {
             failure() 
         }
+        
+        if (redTurns===0 || blueTurns===0) {
+        
+            alert('The game is over') }
         refreshPage(redTurns,blueTurns,currentTurn);
     }
     else {
@@ -185,10 +204,4 @@ endTurn.addEventListener('click', function(event){
 when bomb is called or either red or blue counter is 0
 one team if there guess counter is 0
 if bomb then the other team than the turn chance wins
-*/
-/*
-function gameOver() {
-    if ()
-    
-}
 */
