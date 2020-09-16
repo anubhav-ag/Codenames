@@ -16,7 +16,7 @@ noofGuess.addEventListener('change', function(e){
     clickNos = noofGuess.value
     clickNos++
     clue = guessClue.value
-    alert('You can guess a maximum of ' + clickNos + ' words related to ' + clue)
+    alert(currentTurn+ ' team can guess a maximum of ' + clickNos + ' words related to ' + clue)
 })
 
 //Player mode - when all cells are grey colour
@@ -68,7 +68,7 @@ let turnGuess = document.getElementsByClassName('turn')
 function refreshPage(redCount, blueCount, turnColour) {
     redGuess[0].innerHTML = 'Number of Guesses/Cards for Red Team: ' + redCount
     blueGuess[0].innerHTML = 'Number of Guesses/Cards for Blue Team: ' + blueCount
-    turnGuess[0].innerHTML = 'Current Turn is: ' + currentTurn
+    turnGuess[0].innerHTML = 'Current Turn is: ' + currentTurn+ ' team'
 }
 
 let redTurns=redCol;
@@ -149,9 +149,8 @@ function civilian() {
      toggleTurn()
 }
 function bomb() {
-    alert ('You guessed a bomb, your turn is over and so is the game')
     toggleTurn()
-    alert('The game is over ' +currentTurn + ' team wins')
+    alert('You guessed a bomb, the game is over, ' +currentTurn + ' team wins')
 //once click disable all clicks -  not done
 }
 
