@@ -1,3 +1,4 @@
+//all variable declarations
 let cellCol = []
 
 let yellowCol = 7
@@ -10,15 +11,13 @@ let clue = ''
 //How to Determine the chances one gets
 let noofGuess = document.querySelector('.guess')
 let guessClue = document.querySelector('.clues')
-//console.log(guessClue)
+
 noofGuess.addEventListener('change', function(e){
     clickNos = noofGuess.value
     clickNos++
     clue = guessClue.value
     alert('You can guess a maximum of ' + clickNos + ' words related to ' + clue)
 })
-
-console.log(clickNos)
 
 //Player mode - when all cells are grey colour
 let playerButton = document.getElementById('player')
@@ -34,22 +33,22 @@ player.addEventListener('click', function(e) {
         }
     } 
 })
+
 //Spymaster mode - when all cell colour are displayed
 let spymasterButton = document.getElementById('spymaster')
-
 spymasterButton.addEventListener('click', function(e){ 
     for (let i=1; i < row.length; i++) {
         row[i].classList.remove('player') }
     
     for (let i=0; i<cell.length; i++) {
         if (cell[i].className.includes('black')) {
-        console.log(cell[i])
+        //console.log(cell[i])
         cell[i].style.color = "white"
         }
     } 
-    })    //spymasterButton.removeEventListener('click')
+    })
 
-//determine current turn
+//Determine current turn
 let currentTurn =  ''
 let turnOrder = document.getElementsByClassName('turn-order')
 let randomNumber = Math.floor(Math.random() * 2)
@@ -62,8 +61,8 @@ else { redCol = 9
     blueCol = 8
     currentTurn = 'red'    
 }
-//Operating/upating on the turns/chances
 
+//Operating/upating on the turns/chances
 let redGuess = document.getElementsByClassName('red-number')
 let blueGuess = document.getElementsByClassName('blue-number')
 let turnGuess = document.getElementsByClassName('turn')
@@ -107,7 +106,6 @@ while (cellCol.length<25) {
         }
     }
 
-
 for (let i=0; i<cell.length; i++) {
        cell[i].className += ' '+ cellCol[i]
 }
@@ -117,6 +115,7 @@ for (let i=0; i<25; i++) {
         cell[i].innerText = dictionary[randomNumber]
     dictionary.splice(randomNumber,1)
 }
+
 //Change Turns
 function toggleTurn() {    
     if(currentTurn == 'red') {
@@ -146,7 +145,6 @@ function failure() {
         redTurns-- 
     }
     else {blueTurns--}
-    //console.log(`RED: ${redTurns} BLUE: ${blueTurns}`)
 }
 function civilian() {
     alert ('You guessed a civilian word, turn over')
