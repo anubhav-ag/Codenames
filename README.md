@@ -22,6 +22,7 @@ The game ends when all of one team's agents are identified (winning the game for
 I have used HTML, CSS and Javascript to create the game.
 
 ## Link
+https://anubhav-ag.github.io/Codenames/
 
 ## Improvements
 1. Disable any activity in spymaster view
