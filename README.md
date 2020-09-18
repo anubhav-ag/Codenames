@@ -1,9 +1,9 @@
-# codenames
+# Codenames
 
-Codenames
-
+## Introduction
 Codenames is a game of guessing which codenames (i.e., words) in a set are related to a hint-word given by another player.
 
+## How to Play
 Players split into two teams: red and blue. One player of each team is selected as the team's spymaster; the others are field operatives.
 
 Twenty-five Codename cards, each bearing a word, are laid out in a 5×5 rectangular grid, in random order. A number of these words represent red agents, a number represent blue agents, one represents an assassin/bomb, and the others represent innocent civilians.bystanders.
@@ -17,3 +17,14 @@ The hint's number tells the field operatives how many words in the grid are rela
 After a spymaster gives the hint with its word and number, their field operatives make guesses about which code name cards bear words related to the hint and point them out, one at a time. When a code name card is pointed out, the spymaster covers that card with an appropriate identity card – a blue agent card, a red agent card, an innocent bystander card, or the assassin card – as indicated on the spymasters' map of the grid. If the assassin is pointed out, the game ends immediately, with the team who identified him losing. If an agent of the other team is pointed out, the turn ends immediately, and that other team is also one agent closer to winning. If an innocent bystander is pointed out, the turn simply ends.
 
 The game ends when all of one team's agents are identified (winning the game for that team), or when one team has identified the assassin (losing the game).
+
+## Technologies Used
+I have used HTML, CSS and Javascript to create the game.
+
+## Link
+
+## Improvements
+1. Disable any activity in spymaster view
+2. Add timer to each turn
+3. Move the alert views to modal
+4. General CSS Improvements
